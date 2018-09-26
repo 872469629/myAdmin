@@ -99,14 +99,8 @@ public class CommonController implements ServletContextAware {
 		model.addAttribute("comment", 0);
 		model.addAttribute("foldnav", 0);
 		model.addAttribute("ordercol", 6);
-		Cookie[] cookies = request.getCookies();
-		Integer foldpanel = 1;// 1.消息提醒,2.收起面板
-		for (Cookie c : cookies) {
-			if ("foldpanel".equals(c.getName()) && StringUtils.isNotEmpty(c.getValue())) {
-				foldpanel = Integer.parseInt(c.getValue());
-			}
-		}
-		model.addAttribute("foldpanel", foldpanel);
+		model.addAttribute("is_openmerch", 1);//1.自营，2.否
+		model.addAttribute("copyright", "我的后台");//版权
 		// 顶部的右边菜单
 		Map<String, Object> right_menu = new HashMap<>();
 		right_menu.put("system", 1);

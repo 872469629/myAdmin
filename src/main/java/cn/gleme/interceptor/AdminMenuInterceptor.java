@@ -8,9 +8,11 @@ package cn.gleme.interceptor;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -69,6 +71,15 @@ public class AdminMenuInterceptor extends HandlerInterceptorAdapter {
 			//一级权限和该一级权限下的所有权限
 			request.setAttribute("sencondAuthResource", authResourceService.getSencondAuthResource(url));
 			request.setAttribute("myAllResourceList", myAllResourceList);
+			//后边的消息提醒
+			Cookie[] cookies = request.getCookies();
+			Integer foldpanel = 1;// 1.消息提醒,2.收起面板
+			for (Cookie c : cookies) {
+				if ("foldpanel".equals(c.getName()) && StringUtils.isNotEmpty(c.getValue())) {
+					foldpanel = Integer.parseInt(c.getValue());
+				}
+			}
+			request.setAttribute("foldpanel", foldpanel);
 		}
 	}
 }
