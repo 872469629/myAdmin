@@ -271,9 +271,9 @@
                         <li class="active"><a data-toggle="tab" href="#goods_rank_0" onclick="get_goods(0)">今日</a></li>
                         <li><a data-toggle="tab" href="#goods_rank_1" onclick="get_goods(1)">昨日</a></li>
                         <li><a data-toggle="tab" href="#goods_rank_7" onclick="get_goods(7)">最近七日</a></li>
-                        {ifp 'statistics.goods'}
+<!--                         {ifp 'statistics.goods'} -->
                         <li><a href="{php echo webUrl('statistics/goods')}">更多</a></li>
-                        {/if}
+<!--                         {/if} -->
                     </ul>
                 </div>
                 <div class="ibox-content">
@@ -510,7 +510,7 @@
                     ]
                 };
                 if(hasLineChart) {
-//                     lineChart.setOption(lineoption);
+                    lineChart.setOption(lineoption);
                     lineChart.resize();
                 }
                 $("#echarts-line-chart-loading").hide();

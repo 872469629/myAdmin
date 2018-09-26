@@ -9,12 +9,12 @@
         </div>
     </div>
 
-    {if !empty($_W['setting']['copyright']['statcode'])}{$_W['setting']['copyright']['statcode']}{/if}
-    {if !empty($copyright) && !empty($copyright['copyright'])}
-    <div class="wb-footer" style='width:100%;'>
-        <div>{$copyright['copyright']}</div>
-    </div>
-    {/if}
+<!--    <#if copyright??>${copyright }</#if>-->
+<!--     <#if copyright??> -->
+<!--     <div class="wb-footer" style='width:100%;'> -->
+<!--         <div>${copyright }</div> -->
+<!--     </div> -->
+<!--     </#if> -->
 
 </div>
 

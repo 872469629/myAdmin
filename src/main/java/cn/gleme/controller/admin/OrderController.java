@@ -64,11 +64,20 @@ public class OrderController {
 		allcount_value.add(0l);
 		allcount_value.add(0l);
 		allcount_value.add(0l);
+		allcount_value.add(0l);
+		allcount_value.add(0l);
+		allcount_value.add(0l);
 		List<Long> allprice_value = new ArrayList<>();
 		allprice_value.add(0l);
 		allprice_value.add(0l);
 		allprice_value.add(0l);
+		allprice_value.add(0l);
+		allprice_value.add(0l);
+		allprice_value.add(0l);
 		List<Long> count_value = new ArrayList<>();
+		count_value.add(0l);
+		count_value.add(0l);
+		count_value.add(0l);
 		count_value.add(0l);
 		count_value.add(0l);
 		count_value.add(0l);
@@ -81,6 +90,9 @@ public class OrderController {
 		price_key.add("2018-09-14");
 		price_key.add("2018-09-15");
 		List<Long> price_value = new ArrayList<>();
+		price_value.add(0l);
+		price_value.add(0l);
+		price_value.add(0l);
 		price_value.add(0l);
 		price_value.add(0l);
 		price_value.add(0l);
@@ -109,11 +121,12 @@ public class OrderController {
 		goods_rank_0.add(m1);
 		Map<String, Object> obj = new HashMap<>();
 		obj.put("goods_rank_0", goods_rank_0);
-		obj.put("url", "http://localhost/web/index.php?c=site&a=entry&m=ewei_shopv2&do=web");
 		Map<String, Object> result = new HashMap<>();
 		result.put("obj", obj);
+		result.put("url", "#");
 		Map<String, Object> map = new HashMap<>();
 		map.put("result", result);
+		map.put("status", 1);
 		return map;
 	}
 
