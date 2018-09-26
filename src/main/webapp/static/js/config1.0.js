@@ -1,5 +1,5 @@
 require.config({
-    baseUrl: "resource/js/app",
+    baseUrl: "/resource/js/app",
     paths: {
         datetimepicker: "../../components/datetimepicker/jquery.datetimepicker",
         daterangepicker: "../../components/daterangepicker/daterangepicker",
