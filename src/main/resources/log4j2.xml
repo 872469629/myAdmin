@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="INFO" monitorInterval="1800">
+	<appenders>
+
+		<Console name="Console" target="SYSTEM_OUT" follow="true">
+			<PatternLayout
+				pattern="%date{yyyy-MM-dd HH:mm:ss.SSS} %level [%thread][%file:%line] - %msg%n" />
+		</Console>
+
+		<RollingFile name="RollingFileInfo" fileName="/apps/svr/logs/jsmc-shop/info.log"
+					 filePattern="/apps/svr/logs/jsmc-shop/info-%d{yyyy-MM-dd}-%i.log">
+			<Filters>
+				<ThresholdFilter level="INFO"/>
+				<ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL"/>
+			</Filters>
+			<PatternLayout pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy/>
+				<SizeBasedTriggeringPolicy size="100 MB"/>
+			</Policies>
+		</RollingFile>
+
+		<RollingFile name="RollingFileWarn" fileName="/apps/svr/logs/jsmc-shop/warn.log"
+					 filePattern="/apps/svr/logs/jsmc-shop/warn-%d{yyyy-MM-dd}-%i.log">
+			<Filters>
+				<ThresholdFilter level="WARN"/>
+				<ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="NEUTRAL"/>
+			</Filters>
+			<PatternLayout pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy/>
+				<SizeBasedTriggeringPolicy size="100 MB"/>
+			</Policies>
+		</RollingFile>
+
+		<RollingFile name="RollingFileError" fileName="/apps/svr/logs/jsmc-shop/error.log"
+					 filePattern="/apps/svr/logs/jsmc-shop/error-%d{yyyy-MM-dd}-%i.log">
+			<ThresholdFilter level="ERROR"/>
+			<PatternLayout pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
+			<Policies>
+				<TimeBasedTriggeringPolicy/>
+				<SizeBasedTriggeringPolicy size="100 MB"/>
+			</Policies>
+		</RollingFile>
+
+	</appenders>
+
+	<loggers>
+		<logger name="cn.gleme.integral" level="INFO"></logger>
+		<root level="info">
+			<appender-ref ref="Console" />
+			<appender-ref ref="RollingFileInfo"/>
+			<appender-ref ref="RollingFileWarn"/>
+			<appender-ref ref="RollingFileError"/>
+		</root>
+	</loggers>
+
+</configuration>
