@@ -25,17 +25,16 @@ public class GenerateRunner {
 //		params.put("name", "菜单");//业务名称
 		
 		
-//		params.put("modelName", "ImsEweiShopAdv");//类名
-//		params.put("name", "幻灯片");//业务名称
-		params.put("modelName", "ImsEweiShopNav");//类名
-		params.put("name", "导航图标");//业务名称
+		params.put("modelName", "ImsEweiShopAdv");//类名
+		params.put("name", "幻灯片");//业务名称
+//		params.put("modelName", "ImsEweiShopNav");//类名
+//		params.put("name", "导航图标");//业务名称
 		
 		List<Form> columnList = new ArrayList<Form>();
-//		columnList.add(new Form("value", "新手引导图文",Type.editor,true));
-//		columnList.add(new Form("type", "",Type.enumSelect,true));
-//		columnList.add(new Form("content", "短信内容",Type.text,true));
-//		columnList.add(new Form("createUser", "发送者",Type.text,true));
-//		columnList.add(new Form("createDate", "发送日期",Type.date,true));
+		columnList.add(new Form("id", "顺序",Type.text,true));
+		columnList.add(new Form("advname", "标题",Type.text,true));
+		columnList.add(new Form("link", "链接",Type.text,true));
+		columnList.add(new Form("displayorder", "显示",Type.text,true));
 
 		Generate.genDao(params, "dao.ftl", true);
 		Generate.genDaoImpl(params, "daoImpl.ftl", true);
