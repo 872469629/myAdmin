@@ -41,7 +41,11 @@
                 <thead>
                 <tr>
                     <th style="width:25px;"></th>
-                    <th style="width: 95px">${message("admin.common.action")}</th>
+                    <th style='width:50px'>顺序</th>
+                    <th style="width: 180px;">标题</th>
+                    <th>链接</th>
+                    <th style='width:60px'>显示</th>
+                    <th style="width: 65px;">操作</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -49,6 +53,19 @@
                     <tr>
                         <td><input type='checkbox' name="ids"  value=""/></td>
 
+						<td>${bean.id}</td>
+						<td>${bean.advname}</td>
+						<td>${bean.link}</td>
+						<td>
+                            <span class='label [#if bean.enabled?? && bean.enabled==1 ]label-primary[#else]label-default[/#if]'
+                                      data-toggle='ajaxSwitch'
+                                      data-switch-value='${bean.enabled!'0' }'
+                                      data-switch-value0='0|隐藏|label label-default|/admin/ims_ewei_shop_adv/enabled?id=${bean.id}&enabled=1'
+                                      data-switch-value1='1|显示|label label-primary|/admin/ims_ewei_shop_adv/enabled?id=${bean.id}&enabled=0'
+                            >
+                                  [#if bean.enabled?? && bean.enabled==1 ]显示[#else]隐藏[/#if]
+                            </span>
+                        </td>
 
                         <td>
                             <div class="btn-group">
@@ -65,12 +82,15 @@
                 <tfoot>
                 <tr>
                     <td><input type="checkbox"></td>
-                    <td colspan="2">
+                    <td colspan="3">
                         <div class="btn-group">
                             <button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch-remove' data-confirm="确认要删除?" data-href="delete.jhtml"><i class='icow icow-shanchu1'></i> ${message("admin.common.delete")}</button>
                         </div>
                     </td>
-                    <td colspan="4" style="text-align: right">
+                    <td colspan="2" style="text-align: right">
+                   		[@pagination pageNumber = page.pageNumber totalPages = page.totalPages]
+							[#include "/v3admin/include/pagination.ftl"]
+						[/@pagination]
                     </td>
                 </tr>
                 </tfoot>
