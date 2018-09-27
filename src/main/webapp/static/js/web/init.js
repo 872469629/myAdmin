@@ -322,8 +322,9 @@ function($, bs) {
         var html = obj.html();
         var submit = function() {
             $.post(url).done(function(data) {
-                data = eval("(" + data + ")");
-                if (data.status == 1) {
+//                data = eval("(" + data + ")");
+//                if (data.status == 1) {
+            	if (data.code == 200||data.type == "success") {
                     if (other && othercss) {
                         if (newvalue == '1') {
                             $(othercss).each(function() {
@@ -340,7 +341,8 @@ function($, bs) {
                     refresh && location.reload()
                 } else {
                     obj.html(html),
-                    tip.msgbox.err(data.result.message || tip.lang.error, data.result.url)
+//                    tip.msgbox.err(data.result.message || tip.lang.error, data.result.url)
+                    tip.msgbox.err(data.msg || tip.lang.error, data.retUrl)
                 }
                 obj.removeAttr('submitting')
             }).fail(function() {

@@ -111,6 +111,7 @@
 				<entry key="message" value-ref="messageMethod" />
 				<entry key="abbreviate" value-ref="abbreviateMethod" />
 				<entry key="currency" value-ref="currencyMethod" />
+				<entry key="pagination" value-ref="paginationDirective" />
 			</map>
 		</property>
 	</bean>

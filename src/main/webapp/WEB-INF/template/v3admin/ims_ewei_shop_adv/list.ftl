@@ -51,7 +51,7 @@
                 <tbody>
 					[#list page.content as bean]
                     <tr>
-                        <td><input type='checkbox' name="ids"  value=""/></td>
+                        <td><input type='checkbox' name="ids"  value="${bean.id}"/></td>
 
 						<td>${bean.id}</td>
 						<td>${bean.advname}</td>
@@ -84,6 +84,8 @@
                     <td><input type="checkbox"></td>
                     <td colspan="3">
                         <div class="btn-group">
+                        	<button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch' data-href="/admin/ims_ewei_shop_adv/enabled?enabled=1"><i class='icow icow-xianshi'></i> 显示</button>
+                            <button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch'  data-href="/admin/ims_ewei_shop_adv/enabled?enabled=0"><i class='icow icow-yincang'></i> 隐藏</button>
                             <button class="btn btn-default btn-sm btn-operation" type="button" data-toggle='batch-remove' data-confirm="确认要删除?" data-href="delete.jhtml"><i class='icow icow-shanchu1'></i> ${message("admin.common.delete")}</button>
                         </div>
                     </td>
