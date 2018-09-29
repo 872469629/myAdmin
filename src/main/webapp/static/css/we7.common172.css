@@ -825,7 +825,7 @@ select.we7-select {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
-    background: url(../images/select-arrow.png) #fff no-repeat right !important;
+    background: url(/resource/images/select-arrow.png) #fff no-repeat right !important;
     padding-right: 35px
 }
 
@@ -854,7 +854,7 @@ select.we7-select[multiple=multiple], select[multiple=multiple] {
 @font-face {
     font-family: we7icon;
     src: url(../../../../web/resource/fonts/we7icon.eot?ceg6l3);
-    src: url(../../../../web/resource/fonts/we7icon.eot?ceg6l3#iefix) format("embedded-opentype"), url(../../../../web/resource/fonts/we7icon.ttf?ceg6l3) format("truetype"), url(../../../../web/resource/fonts/we7icon.woff?ceg6l3) format("woff"), url(../../../../web/resource/fonts/we7icon.svg?ceg6l3#we7icon) format("svg");
+    src: url(../../../../web/resource/fonts/we7icon.eot?ceg6l3#iefix) format("embedded-opentype"), url(/resource/fonts/we7icon.ttf?ceg6l3) format("truetype"), url(../../../../web/resource/fonts/we7icon.woff?ceg6l3) format("woff"), url(../../../../web/resource/fonts/we7icon.svg?ceg6l3#we7icon) format("svg");
     font-weight: 400;
     font-style: normal
 }

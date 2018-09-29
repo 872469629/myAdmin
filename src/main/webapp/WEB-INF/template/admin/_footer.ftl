@@ -22,6 +22,40 @@
 
 
 <script language='javascript'>
+	<!--图片操作-->
+	function showImageDialog(elm, opts, options) {
+        require(["util"], function(util){
+            var btn = $(elm);
+            var ipt = btn.parent().prev();
+            var val = ipt.val();
+            var img = ipt.parent().next().children();
+            options = {'global':false,'class_extra':'','direct':true,'multiple':false,'fileSizeLimit':5120000};
+            util.image(val, function(url){
+                if(url.url){
+                    if(img.length > 0){
+                        img.get(0).src = url.url;
+                        img.closest(".input-group").show();
+                    }
+                    ipt.val(url.url);
+                    ipt.attr("filename",url.filename);
+                }
+                if(url.media_id){
+                    if(img.length > 0){
+                        img.get(0).src = "";
+                    }
+                    ipt.val(url.media_id);
+                }
+            }, options);
+        });
+    }
+    function deleteImage(elm){
+        require(["jquery"], function($){
+            $(elm).prev().attr("src", "${base}/static/images/default-pic.jpg");
+            $(elm).parent().prev().find("input").val("");
+        });
+    }
+	<!--图片操作-->
+	
     require(['bootstrap'], function ($) {
         $('[data-toggle="tooltip"]').tooltip("destroy").tooltip({
             container: $(document.body)
